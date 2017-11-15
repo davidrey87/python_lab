@@ -125,19 +125,27 @@ def square(list):
 	print(temp)
 
 def is_prime(n):
-    """ 11:  Return if n is prime.
-    >>> is_prime(5)
-    True
-    >>> is_prime(6)
-    False
-    """
-	
+	""" 11:  Return if n is prime.
+	>>> is_prime(5)
+	True
+	>>> is_prime(6)
+	False
+	"""
+	if n > 1:
+		for i in range(2, n):
+			if (n % i) == 0:
+				return False
+				break
+			else:
+				return True
+				break
+	else:
+		return False
 
 def factorial(n):
-    """ 12: Return the factorial of n, an exact integer >= 0.
+	""" 12: Return the factorial of n, an exact integer >= 0.
     If the result is small enough to fit in an int, return an int.
     Else return a long.
-
     >>> [factorial(n) for n in range(6)]
     [1, 1, 2, 6, 24, 120]
     >>> [factorial(long(n)) for n in range(6)]
@@ -145,6 +153,10 @@ def factorial(n):
     >>> factorial(30)
     265252859812191058636308480000000L
     """
+	if n == 0:
+		return 1
+	else:
+		return int(n * factorial(n-1))
 
 def to_roman(n):
     """ 13: Convert number integer to Roman numeral
