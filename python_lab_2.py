@@ -112,21 +112,26 @@ def contar_vocales(cadena):
 			count = count + 1
 	return count
 
-def square(list):  
-    """ 10: Calculate the square of the numbers in a list
+def square(list):
+	""" 10: Calculate the square of the numbers in a list
 	>>> l = [0, 1, 2, 3]
 	>>> square(l)
-	[0, 1, 4, 9] 
-    """ 
+	[0, 1, 4, 9]
+    """
+	temp=[]
+	for i in range(len(list)):
+		temp.append(list[i]*list[i])
+
+	print(temp)
 
 def is_prime(n):
     """ 11:  Return if n is prime.
-    
     >>> is_prime(5)
     True
     >>> is_prime(6)
     False
     """
+	
 
 def factorial(n):
     """ 12: Return the factorial of n, an exact integer >= 0.
