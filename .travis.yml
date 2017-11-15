@@ -4,4 +4,5 @@ python:
 install:
   - pip install flake8
 script:
+  - python -m doctest python_lab_2.py
   - flake8 python_lab_2.py
