@@ -92,15 +92,25 @@ def is_leap_year(year):
 
 def has_uppercase(word):
 	""" 8: Evaluate if a word has uppercase letters
-	>>> has_uppercase(MayuSculA)
+	>>> has_uppercase('MayuSculA')
 	3
 	"""
+	count = 0
+	for i in word.strip():
+		if i.isupper():
+			count = count + 1
+	return count
 
 def contar_vocales(cadena):
 	""" 9: Return number of vocales in a word.
-	>>> contar_vocales(murcielago)
+	>>> contar_vocales('murcielago')
 	5
 	"""
+	count = 0
+	for i in cadena.strip():
+		if is_vocal(i):
+			count = count + 1
+	return count
 
 def square(list):  
     """ 10: Calculate the square of the numbers in a list
