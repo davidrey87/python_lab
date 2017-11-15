@@ -1,0 +1,6 @@
+language: python
+  - 3.7
+install:
+  sudo apt-get install flake8
+script:
+  python flake8 python_lab_2.py
