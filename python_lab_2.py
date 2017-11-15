@@ -54,29 +54,41 @@ def word_filter(list_of_words, n):
 	for i in range(len(list_of_words)):
 		if len(list_of_words[i-a]) <= n:
 			list_of_words.remove(list_of_words[i-a])
-			a = 2
+			a = a + 1
 			
-	print(list_of_words)
+	return list_of_words
 
 def string_length(list):
 	""" 5: imprime el largo de una cadena de caracteres
 	>>> string_length("popularity")
 	10
 	"""
+	return len(list)
 
 def is_vocal(x):
 	""" 6: Determines if it is vocal
-	>>> is_vocal(a)
+	>>> is_vocal('a')
 	True
-	>>> is_vocal(b)
+	>>> is_vocal('b')
 	False
 	"""
+	if x == 'a' or x == 'e' or x == 'i' or x == 'o' or x == 'u':
+		return True
+	else:
+		return False
 
 def is_leap_year(year):
 	""" 7: Determines if a year is a leap year.
 	>>> is_leap_year(2016)
 	True
 	"""
+	if year%400 == 0:
+		return True
+	elif year%100 == 0:
+		return False
+	elif year%4 == 0:
+		return True
+	return False
 
 def has_uppercase(word):
 	""" 8: Evaluate if a word has uppercase letters
