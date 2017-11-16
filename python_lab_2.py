@@ -160,15 +160,27 @@ def is_prime(n):
     False
     """
     if n > 1:
-        for i in range(2, n):
-            if (n % i) == 0:
-                return False
-                break
-            else:
-                return True
-                break
+        return is_prime_range(n)
     else:
         return False
+
+
+def is_prime_range(n):
+    """ Vemos si se da un resultado exacto 
+    """
+    for i in range(2, n):
+        return is_prime_zero(n, i)
+
+
+def is_prime_zero(n, i):
+    """ Verificamos si se da un resultado exacto 
+    """
+    if (n % i) == 0:
+        return False
+        break
+    else:
+        return True
+        break
 
 
 def factorial(n):
