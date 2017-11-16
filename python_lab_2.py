@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from collections import OrderedDict
+
 """ Repaso interactivo de python
 """
 
@@ -158,24 +160,30 @@ def factorial(n):
 	else:
 		return int(n * factorial(n-1))
 
-def to_roman(n):
-    """ 13: Convert number integer to Roman numeral
 
-    >>> to_roman(598)
-    [DXCVIII]
-    """
+def to_roman(n):
+	""" 13: Convert number integer to Roman numeral
+	>>> to_roman(598)
+	'DXCVIII'
+	"""
+	return "".join([a for a in roman_num(n)])
 
 def rima(word1, word2):
 	""" 14: Indica si dos palabrar riman. Si coinciden las 3 ultimas letras rima, 
 	si ncoinciden solo 2 rima un poco, si coincide solo 1 no rima.
-
-	>>> rima(flor, coliflor)
+	>>> rima('flor', 'coliflor')
 	rima
-	>>> rima(amar, plantar)
-	rima un poco.
-	>>> rima(azucar, barrer)
+	>>> rima('amar', 'plantar')
+	rima un poco
+	>>> rima('azucar', 'barrer')
 	no rima
 	"""
+	if word1[len(word1)-3:len(word1)] == word2[len(word2)-3:len(word2)]:
+		print("rima")
+	elif word1[len(word1)-2:len(word1)] == word2[len(word2)-2:len(word2)]:
+		print("rima un poco")
+	else:
+		print("no rima")
 
 def capital(pesos, interes, anios):
 	""" 15: Pide una cantidad de pesos, una tasa de interés y un numero de años. Muestra en cuanto se habrá convertido el 
@@ -184,3 +192,27 @@ def capital(pesos, interes, anios):
 	>>> capital(10000, 4.5, 20)
 	24117.14
 	"""
+
+def roman_num(n):
+	roman = OrderedDict()
+	roman[1000] = "M"
+	roman[900] = "CM"
+	roman[500] = "D"
+	roman[400] = "CD"
+	roman[100] = "C"
+	roman[90] = "XC"
+	roman[50] = "L"
+	roman[40] = "XL"
+	roman[10] = "X"
+	roman[9] = "IX"
+	roman[5] = "V"
+	roman[4] = "IV"
+	roman[1] = "I"
+	for r in roman.keys():
+		x, y = divmod(n, r)
+		yield roman[r] * x
+		n -= (r * x)
+		if n > 0:
+			roman_num(n)
+		else:
+			break
