@@ -73,11 +73,17 @@ def word_filter(list_of_words, n):
     """
     a = 1
     for i in range(len(list_of_words)):
-        if len(list_of_words[i-a]) <= n:
-            list_of_words.remove(list_of_words[i-a])
-            a = a + 1
+       list_of_words, a = word_list(list_of_words, n, a, i)
 
     return list_of_words
+
+
+def word_list(list_of_words, n, a, i):
+    if len(list_of_words[i-a]) <= n:
+        list_of_words.remove(list_of_words[i-a])
+        a = a + 1
+
+    return list_of_words, a
 
 
 def string_length(list):
@@ -166,21 +172,13 @@ def is_prime(n):
 
 
 def is_prime_range(n):
-    """ Vemos si se da un resultado exacto 
-    """
     for i in range(2, n):
-        return is_prime_zero(n, i)
-
-
-def is_prime_zero(n, i):
-    """ Verificamos si se da un resultado exacto 
-    """
-    if (n % i) == 0:
-        return False
-        break
-    else:
-        return True
-        break
+        if (n % i) == 0:
+            return False
+            break
+        else:
+            return True
+            break
 
 
 def factorial(n):
