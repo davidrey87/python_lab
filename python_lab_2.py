@@ -44,12 +44,19 @@ def may_20(tup):
     superiores = ""
     for x in tup:
         if x > 20:
-            if superiores == "":
-                superiores = str(x)
-            else:
-                superiores = superiores + ", " + str(x)
+            superiores = compara_20(superiores,x)
 
     print(superiores)
+
+
+def compara_20(cadenaTMP, cadena):
+    """ Concatenamos una cadena si esta o no vacia.
+    """
+    if cadenaTMP == "":
+        cadenaTMP = str(cadena)
+    else:
+        cadenaTMP = cadenaTMP + ", " + str(cadena)
+    return cadenaTMP
 
 
 def word_filter(list_of_words, n):
