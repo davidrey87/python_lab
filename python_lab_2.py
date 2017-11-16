@@ -188,10 +188,11 @@ def rima(word1, word2):
 def capital(pesos, interes, anios):
 	""" 15: Pide una cantidad de pesos, una tasa de interés y un numero de años. Muestra en cuanto se habrá convertido el 
 	capital inicial transcurridos esos años si cada año se aplica la tasa de interés introducida.
-
 	>>> capital(10000, 4.5, 20)
 	24117.14
 	"""
+	total = pesos*(1 + interes/100)**anios
+	print("%.2f" % total)
 
 def roman_num(n):
 	roman = OrderedDict()

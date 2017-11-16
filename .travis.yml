@@ -6,3 +6,4 @@ install:
 script:
   - python -m doctest python_lab_2.py
   - flake8 python_lab_2.py
+  - flake8 --max-complexity=2
