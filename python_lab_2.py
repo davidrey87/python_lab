@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from collections import OrderedDict
 from math import sqrt
 from itertools import count, islice
 import calendar
