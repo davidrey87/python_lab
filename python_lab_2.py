@@ -23,7 +23,7 @@ def lower_up(lower, upper):
     14
     15
     """
-    for lower in range(lower, upper+1):
+    for lower in range(lower, upper + 1):
         print(lower)
 
 
@@ -163,7 +163,7 @@ def is_prime(n):
     >>> is_prime(6)
     False
     """
-    return n > 1 and all(n%i for i in islice(count(2), int(sqrt(n)-1)))
+    return n > 1 and all(n % i for i in islice(count(2), int(sqrt(n)-1)))
 
 
 def factorial(n):
@@ -201,12 +201,24 @@ def rima(word1, word2):
     >>> rima('azucar', 'barrer')
     no rima
     """
-    x = "no rima"
-    if word1[len(word1)-3:len(word1)] == word2[len(word2)-3:len(word2)]:
-        x = "rima"
-    elif word1[len(word1)-2:len(word1)] == word2[len(word2)-2:len(word2)]:
-        x = "rima un poco"
+    x = ""
+    x = rima_comparation(word1, word2, 2)
+    if x == "rima un poco":
+        x = rima_comparation2(word1, word2, 3)
     print(x)
+
+
+def rima_comparation(word1, word2, n):
+    if word1[len(word1)-n:len(word1)] == word2[len(word2)-n:len(word2)]:
+        return "rima un poco"
+    return "no rima"
+
+
+def rima_comparation2(word1, word2, n):
+    if word1[len(word1)-n:len(word1)] == word2[len(word2)-n:len(word2)]:
+        return "rima"
+    return "rima un poco"
+
 
 
 def capital(pesos, interes, anios):
