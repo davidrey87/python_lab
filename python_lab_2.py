@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from collections import OrderedDict
+from math import sqrt
+from itertools import count, islice
 import calendar
 
 """ Repaso interactivo de python
@@ -161,20 +163,7 @@ def is_prime(n):
     >>> is_prime(6)
     False
     """
-    if n > 1:
-        return is_prime_range(n)
-    else:
-        return False
-
-
-def is_prime_range(n):
-    for i in range(2, n):
-        if (n % i) == 0:
-            return False
-            break
-        else:
-            return True
-            break
+    return n > 1 and all(n%i for i in islice(count(2), int(sqrt(n)-1)))
 
 
 def factorial(n):
