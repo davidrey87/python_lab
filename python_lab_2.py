@@ -186,9 +186,19 @@ def factorial(n):
 def to_roman(n):
     """ 13: Convert number integer to Roman numeral
     >>> to_roman(598)
-    'DXCVIII'
+    ['DXCVIII']
     """
-    return "".join([a for a in roman_num(n)])
+    val = (1000, 900,  500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1)
+    syb = ('M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX',
+           'V', 'IV', 'I')
+    roman_num = ""
+    list = []
+    for i in range(len(val)):
+        count = int(n / val[i])
+        roman_num += syb[i] * count
+        n -= val[i] * count
+    list.append(roman_num)
+    return list
 
 
 def rima(word1, word2):
@@ -220,7 +230,6 @@ def rima_comparation2(word1, word2, n):
     return "rima un poco"
 
 
-
 def capital(pesos, interes, anios):
     """ 15: Pide una cantidad de pesos, una tasa de interés y un numero de años.
     Muestra en cuanto se habrá convertido el
@@ -231,28 +240,3 @@ def capital(pesos, interes, anios):
     """
     total = pesos*(1 + interes/100)**anios
     print("%.2f" % total)
-
-
-def roman_num(n):
-    roman = OrderedDict()
-    roman[1000] = "M"
-    roman[900] = "CM"
-    roman[500] = "D"
-    roman[400] = "CD"
-    roman[100] = "C"
-    roman[90] = "XC"
-    roman[50] = "L"
-    roman[40] = "XL"
-    roman[10] = "X"
-    roman[9] = "IX"
-    roman[5] = "V"
-    roman[4] = "IV"
-    roman[1] = "I"
-    for r in roman.keys():
-        x, y = divmod(n, r)
-        yield roman[r] * x
-        n -= (r * x)
-        if n > 0:
-            roman_num(n)
-        else:
-            break
