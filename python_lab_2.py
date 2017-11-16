@@ -131,9 +131,14 @@ def contar_vocales(cadena):
     """
     count = 0
     for i in cadena.strip():
-        if is_vocal(i):
-            count = count + 1
+        count = separa_vocal(i) + count
     return count
+
+
+def separa_vocal(i):
+    if is_vocal(i):
+        return 1
+    return 0
 
 
 def square(list):
