@@ -43,19 +43,26 @@ def may_20(tup):
     """
     superiores = ""
     for x in tup:
-        superiores = compara_20(superiores,x)
+        superiores = compara_20(superiores, x)
 
     print(superiores)
 
 
 def compara_20(cadenaTMP, cadena):
-    """ Concatenamos una cadena si esta o no vacia.
+    """ Comparamos si es mayor a 20
     """
     if cadena > 20:
-        if cadenaTMP == "":
-            cadenaTMP = str(cadena)
-        else:
-            cadenaTMP = cadenaTMP + ", " + str(cadena)
+        cadenaTMP = concatena_20(cadenaTMP, cadena)
+    return cadenaTMP
+
+
+def concatena_20(cadenaTMP, cadena):
+    """ Concatenamos una cadena si esta o no vacia.
+    """
+    if cadenaTMP == "":
+        cadenaTMP = str(cadena)
+    else:
+        cadenaTMP = cadenaTMP + ", " + str(cadena)
     return cadenaTMP
 
 
