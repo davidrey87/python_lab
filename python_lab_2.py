@@ -206,12 +206,12 @@ def rima(word1, word2):
     >>> rima('azucar', 'barrer')
     no rima
     """
+    x = "no rima"
     if word1[len(word1)-3:len(word1)] == word2[len(word2)-3:len(word2)]:
-        print("rima")
+        x = "rima"
     elif word1[len(word1)-2:len(word1)] == word2[len(word2)-2:len(word2)]:
-        print("rima un poco")
-    else:
-        print("no rima")
+        x = "rima un poco"
+    print(x)
 
 
 def capital(pesos, interes, anios):
