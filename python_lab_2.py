@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from collections import OrderedDict
+import calendar
 
 """ Repaso interactivo de python
 """
@@ -73,7 +74,7 @@ def word_filter(list_of_words, n):
     """
     a = 1
     for i in range(len(list_of_words)):
-       list_of_words, a = word_list(list_of_words, n, a, i)
+        list_of_words, a = word_list(list_of_words, n, a, i)
 
     return list_of_words
 
@@ -112,13 +113,7 @@ def is_leap_year(year):
     >>> is_leap_year(2016)
     True
     """
-    if year % 400 == 0:
-        return True
-    elif year % 100 == 0:
-        return False
-    elif year % 4 == 0:
-        return True
-    return False
+    print(calendar.isleap(year))
 
 
 def has_uppercase(word):
@@ -126,11 +121,7 @@ def has_uppercase(word):
     >>> has_uppercase('MayuSculA')
     3
     """
-    count = 0
-    for i in word.strip():
-        if i.isupper():
-            count = count + 1
-    return count
+    print(sum(1 for count in word if count.isupper()))
 
 
 def contar_vocales(cadena):
