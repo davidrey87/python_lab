@@ -6,8 +6,8 @@ install:
   - pip install coverage
   - pip install mypy
 script:
-  - python -m doctest python_lab_2.py
+  #- python -m doctest python_lab_2.py
   #- flake8 python_lab_2.py
   #- flake8 --max-complexity=2
-  - python python_lab_2.py -m coverage --with-coverage --cover-min-percentage=99
+  #- python python_lab_2.py -m coverage --with-coverage --cover-min-percentage=99
   - mypy python_lab_2.py
