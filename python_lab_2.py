@@ -66,8 +66,8 @@ def has_uppercase(word: str) -> None:
     >>> has_uppercase('MayuSculA')
     3
     """
-    result: Union[str, int] = sum(1 for c in word if c.isupper())
-    print(result)
+    u = [x for x in word if x.isupper()]
+    print(u)
 
 
 def concatena_20(cadenaTMP: str, cadena: int) -> str:
