@@ -33,7 +33,7 @@ def all_the_args(*args: str, **kwargs: str) -> None:
     and use ** to expand keyword args
     >>> all_the_args(1, 2, a=3, b=4)
     (1, 2)
-    {'a': 3, 'b': 4}
+    {'b': 4, 'a': 3}
     """
     print(args)
     print(kwargs)
@@ -172,7 +172,7 @@ def factorial(n: int) -> int:
     >>> [factorial(int(n)) for n in range(6)]
     [1, 1, 2, 6, 24, 120]
     >>> factorial(30)
-    265252859812191058636308480000000L
+    265252859812191058636308480000000
     """
     if n == 0:
         return 1
