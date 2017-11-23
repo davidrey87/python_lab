@@ -34,7 +34,7 @@ def all_the_args(*args: str, **kwargs: str) -> None:
     and use ** to expand keyword args
     >>> all_the_args(1, 2, a=3, b=4)
     (1, 2)
-    {'b': 4, 'a': 3}
+    {'a': 3, 'b': 4}
     """
     print(args)
     print(kwargs)
