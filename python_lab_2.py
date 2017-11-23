@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from typing import List
 from typing import Tuple
-from typing import Union
 from math import sqrt
 from itertools import count, islice
 import calendar
