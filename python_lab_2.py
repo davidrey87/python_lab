@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from typing import List
 from typing import Tuple
+from typing import Union
 from math import sqrt
 from itertools import count, islice
 import calendar
@@ -58,6 +59,15 @@ def compara_20(cadenaTMP: str, cadena: int) -> str:
     if cadena > 20:
         cadenaTMP = concatena_20(cadenaTMP, cadena)
     return cadenaTMP
+
+
+def has_uppercase(word: str) -> None:
+    """ 8: Evaluate if a word has uppercase letters
+    >>> has_uppercase('MayuSculA')
+    3
+    """
+    result: Union[str, int] = sum(1 for c in word if c.isupper())
+    print(result)
 
 
 def concatena_20(cadenaTMP: str, cadena: int) -> str:
