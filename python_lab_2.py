@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
-from typing import Type
-from typing import Iterable
 from typing import List
-from typing import Dict
 from typing import Tuple
-from typing import Union
 from math import sqrt
 from itertools import count, islice
 import calendar
@@ -173,7 +169,7 @@ def factorial(n: int) -> int:
     Else return a long.
     >>> [factorial(n) for n in range(6)]
     [1, 1, 2, 6, 24, 120]
-    >>> [factorial(long(n)) for n in range(6)]
+    >>> [factorial(int(n)) for n in range(6)]
     [1, 1, 2, 6, 24, 120]
     >>> factorial(30)
     265252859812191058636308480000000L
