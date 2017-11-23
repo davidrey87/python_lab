@@ -67,7 +67,7 @@ def has_uppercase(word: str) -> None:
     3
     """
     u = [x for x in word if x.isupper()]
-    print(u)
+    print(len(u))
 
 
 def concatena_20(cadenaTMP: str, cadena: int) -> str:
