@@ -127,15 +127,6 @@ def is_leap_year(year: int) -> None:
     print(calendar.isleap(year))
 
 
-def has_uppercase(word: str) -> None:
-    """ 8: Evaluate if a word has uppercase letters
-    >>> has_uppercase('MayuSculA')
-    3
-    """
-    result: Union[str, int] = sum(1 for c in word if c.isupper())
-    print(result)
-
-
 def contar_vocales(cadena: str) -> int:
     """ 9: Return number of vocales in a word.
     >>> contar_vocales('murcielago')
