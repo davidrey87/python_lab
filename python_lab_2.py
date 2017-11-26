@@ -2,6 +2,7 @@
 from typing import List
 from typing import Tuple
 from math import sqrt
+from contracts import contract
 from itertools import count, islice
 import calendar
 
@@ -9,6 +10,7 @@ import calendar
 """
 
 
+@contract(lower='int,>0', upper='int,>0', returns=None)
 def lower_up(lower: int, upper: int) -> None:
     """ 1: Returns a list of numbers from the lower number to the upper number:
     >>> lower_up(5,15)
