@@ -30,6 +30,7 @@ def lower_up(lower: int, upper: int) -> None:
         print(lower)
 
 
+@contract(args='tuple[N],N>0', kwargs='dict(str: (int))', returns=None)
 def all_the_args(*args: str, **kwargs: str) -> None:
     """ 2: Return an array. Use * to expand positional args
     and use ** to expand keyword args
@@ -41,6 +42,7 @@ def all_the_args(*args: str, **kwargs: str) -> None:
     print(kwargs)
 
 
+@contract(tup='tuple[N],N>0', returns=None)
 def may_20(tup: Tuple[int]) -> None:
     """ 3: Definir una tupla con 10 números.
     Imprimir la cantidad de números superiores a 20.
@@ -54,6 +56,7 @@ def may_20(tup: Tuple[int]) -> None:
     print(superiores)
 
 
+@contract(cadenaTMP='str', cadena='int,>0', returns='str')
 def compara_20(cadenaTMP: str, cadena: int) -> str:
     """ Comparamos si es mayor a 20
     """
@@ -62,6 +65,7 @@ def compara_20(cadenaTMP: str, cadena: int) -> str:
     return cadenaTMP
 
 
+@contract(word='str', returns=None)
 def has_uppercase(word: str) -> None:
     """ 8: Evaluate if a word has uppercase letters
     >>> has_uppercase('MayuSculA')
@@ -71,6 +75,7 @@ def has_uppercase(word: str) -> None:
     print(len(u))
 
 
+@contract(cadenaTMP='str', cadena='int,>0', returns='str')
 def concatena_20(cadenaTMP: str, cadena: int) -> str:
     """ Concatenamos una cadena si esta o no vacia.
     """
@@ -81,30 +86,34 @@ def concatena_20(cadenaTMP: str, cadena: int) -> str:
     return cadenaTMP
 
 
-def word_filter(list_of_words: List[str], n: int) -> List[str]:
+@contract(list_='list(str)', n='int,>0', returns='list(str)')
+def word_filter(list_: List[str], n: int) -> List[str]:
     """ 4: Filtra las palabras que contienen más de n caracteres.
     >>> word_filter(['hello', 'bye', 'computer', 'software', 'python'], 5)
     ['computer', 'software', 'python']
     """
     a = 1
-    for i in range(len(list_of_words)):
-        list_of_words = word_list(list_of_words, n, a, i)
-        a = word_accepted(list_of_words, n, a, i)
-    return list_of_words
+    for i in range(len(list_)):
+        list_ = word_list(list_, n, a, i)
+        a = word_accepted(list_, n, a, i)
+    return list_
 
 
-def word_list(list_of_words: List[str], n: int, a: int, i: int) -> List[str]:
-    if len(list_of_words[i-a]) <= n:
-        list_of_words.remove(list_of_words[i-a])
-    return list_of_words
+@contract(li='list(str)', n='int,>0', a='int,>0', i='int', returns='list(str)')
+def word_list(li: List[str], n: int, a: int, i: int) -> List[str]:
+    if len(li[i-a]) <= n:
+        li.remove(li[i-a])
+    return li
 
 
-def word_accepted(list_of_words: List[str], n: int, a: int, i: int) -> int:
-    if len(list_of_words[i-a]) <= n:
+@contract(list_='list(str)', n='int,>0', a='int,>0', i='int', returns='int')
+def word_accepted(list_: List[str], n: int, a: int, i: int) -> int:
+    if len(list_[i-a]) <= n:
         a = a + 1
     return a
 
 
+@contract(list='str', returns='int')
 def string_length(list: str) -> int:
     """ 5: imprime el largo de una cadena de caracteres
     >>> string_length("popularity")
@@ -113,6 +122,7 @@ def string_length(list: str) -> int:
     return len(list)
 
 
+@contract(x='str', returns='bool')
 def is_vocal(x: str) -> bool:
     """ 6: Determines if it is vocal
     >>> is_vocal('a')
@@ -126,6 +136,7 @@ def is_vocal(x: str) -> bool:
         return False
 
 
+@contract(year='int', returns=None)
 def is_leap_year(year: int) -> None:
     """ 7: Determines if a year is a leap year.
     >>> is_leap_year(2016)
@@ -134,6 +145,7 @@ def is_leap_year(year: int) -> None:
     print(calendar.isleap(year))
 
 
+@contract(cadena='str', returns='int')
 def contar_vocales(cadena: str) -> int:
     """ 9: Return number of vocales in a word.
     >>> contar_vocales('murcielago')
@@ -145,12 +157,14 @@ def contar_vocales(cadena: str) -> int:
     return count
 
 
+@contract(i='str', returns='int')
 def separa_vocal(i: str) -> int:
     if is_vocal(i):
         return 1
     return 0
 
 
+@contract(list='list(int)', returns=None)
 def square(list: List[int]) -> None:
     """ 10: Calculate the square of the numbers in a list
     >>> l = [0, 1, 2, 3]
@@ -164,6 +178,7 @@ def square(list: List[int]) -> None:
     print(temp)
 
 
+@contract(n='int', returns='bool')
 def is_prime(n: int) -> bool:
     """ 11:  Return if n is prime.
     >>> is_prime(5)
@@ -174,6 +189,7 @@ def is_prime(n: int) -> bool:
     return n > 1 and all(n % i for i in islice(count(2), int(sqrt(n)-1)))
 
 
+@contract(n='int', returns='int')
 def factorial(n: int) -> int:
     """ 12: Return the factorial of n, an exact integer >= 0.
     If the result is small enough to fit in an int, return an int.
@@ -191,6 +207,7 @@ def factorial(n: int) -> int:
         return int(n * factorial(n-1))
 
 
+@contract(n='int', returns='list(str)')
 def to_roman(n: int) -> List[str]:
     """ 13: Convert number integer to Roman numeral
     >>> to_roman(598)
@@ -209,6 +226,7 @@ def to_roman(n: int) -> List[str]:
     return list
 
 
+@contract(word1='str', word2='str', returns=None)
 def rima(word1: str, word2: str) -> None:
     """ 14: Indica si dos palabrar riman. Si coinciden las 3 ultimas letras rima,
     si ncoinciden solo 2 rima un poco, si coincide solo 1 no rima.
@@ -226,24 +244,27 @@ def rima(word1: str, word2: str) -> None:
     print(x)
 
 
+@contract(word1='str', word2='str', n='int', returns='str')
 def rima_comparation(word1: str, word2: str, n: int) -> str:
     if word1[len(word1)-n:len(word1)] == word2[len(word2)-n:len(word2)]:
         return "rima un poco"
     return "no rima"
 
 
+@contract(word1='str', word2='str', n='int', returns='str')
 def rima_comparation2(word1: str, word2: str, n: int) -> str:
     if word1[len(word1)-n:len(word1)] == word2[len(word2)-n:len(word2)]:
         return "rima"
     return "rima un poco"
 
 
+@contract(pesos='float', interes='float', anios='float', returns=None)
 def capital(pesos: float, interes: float, anios: float) -> None:
     """ 15: Pide una cantidad de pesos, una tasa de interés y un numero de años.
     Muestra en cuanto se habrá convertido el
     capital inicial transcurridos esos años si cada
     año se aplica la tasa de interés introducida.
-    >>> capital(10000, 4.5, 20)
+    >>> capital(10000.00, 4.50, 20.00)
     24117.14
     """
     total = pesos*(1 + interes/100)**anios
