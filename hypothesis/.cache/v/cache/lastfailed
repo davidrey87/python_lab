@@ -1,0 +1,4 @@
+{
+  "test.py::test_decode_inverts_encode": true,
+  "test.py::test_lowerup": true
+}
